@@ -46,8 +46,6 @@ third-party assistant cloud in the middle.
 
 ## Architecture
 
-![Nexus Core architecture: Telegram into the pipeline and tool dispatcher, the brain router selecting Claude/Codex CLI or Ollama, and the MCP servers, services, and user-scoped repositories beneath](docs/assets/architecture.png)
-
 ```
 Telegram ─► pipeline/unified.py ─► auth gate ─► tool_dispatcher ─┐
                                                                  │  proposes tool calls

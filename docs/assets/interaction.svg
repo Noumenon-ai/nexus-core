@@ -1,48 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="DejaVu Sans, Arial, sans-serif">
-  <rect width="760" height="560" fill="#0b1016"/>
-  <rect x="0" y="0" width="760" height="5" fill="#4fd1c5"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="540" viewBox="0 0 760 540" font-family="DejaVu Sans, Arial, sans-serif">
+  <rect width="760" height="540" fill="#ffffff"/>
   <style>
-    .u{fill:#142029;stroke:#1f3340;stroke-width:1;}
-    .a{fill:#0f1620;stroke:#243240;stroke-width:1;}
-    .ut{fill:#cdd7e0;font-size:15px;}
-    .at{fill:#e9eef3;font-size:15px;}
-    .lab{fill:#5b6b78;font-size:11px;font-family:DejaVu Sans Mono,monospace;}
-    .acc{fill:#4fd1c5;font-size:11px;font-family:DejaVu Sans Mono,monospace;}
-    .btn{fill:#13202a;stroke:#4fd1c5;stroke-width:1.2;}
-    .btnt{fill:#4fd1c5;font-size:13px;font-family:DejaVu Sans Mono,monospace;}
+    .u{fill:#f2f2f0;stroke:#e0e0dd;stroke-width:1;}
+    .a{fill:#ffffff;stroke:#111111;stroke-width:1.3;}
+    .ut{fill:#111111;font-size:15px;}
+    .at{fill:#111111;font-size:15px;}
+    .lab{fill:#8a8a8a;font-size:11px;font-family:DejaVu Sans Mono,monospace;}
+    .btn{fill:#ffffff;stroke:#111111;stroke-width:1.2;}
+    .btnt{fill:#111111;font-size:13px;font-family:DejaVu Sans Mono,monospace;}
   </style>
-  <text x="28" y="40" class="acc">EXAMPLE INTERACTION (illustrative)</text>
+  <text x="28" y="38" class="lab">EXAMPLE INTERACTION (illustrative)</text>
 
-  <!-- turn 1 -->
-  <rect x="300" y="58" width="432" height="40" rx="9" class="u"/>
-  <text x="320" y="83" class="ut">remind me to call the bank tomorrow at 9am</text>
-  <text x="724" y="112" class="lab" text-anchor="end">you</text>
+  <rect x="300" y="56" width="432" height="40" rx="8" class="u"/>
+  <text x="320" y="81" class="ut">remind me to call the bank tomorrow at 9am</text>
+  <text x="724" y="110" class="lab" text-anchor="end">you</text>
 
-  <rect x="28" y="122" width="470" height="40" rx="9" class="a"/>
-  <text x="44" y="147" class="at">Done. Reminder set for tomorrow, 9:00 AM: call the bank.</text>
-  <text x="44" y="176" class="lab">nexus</text>
+  <rect x="28" y="120" width="470" height="40" rx="8" class="a"/>
+  <text x="44" y="145" class="at">Done. Reminder set for tomorrow, 9:00 AM: call the bank.</text>
+  <text x="44" y="174" class="lab">nexus</text>
 
-  <!-- turn 2: self-correction -->
-  <rect x="380" y="190" width="352" height="40" rx="9" class="u"/>
-  <text x="400" y="215" class="ut">actually make it 10 - wait, 11</text>
-  <text x="724" y="244" class="lab" text-anchor="end">you</text>
+  <rect x="380" y="188" width="352" height="40" rx="8" class="u"/>
+  <text x="400" y="213" class="ut">actually make it 10 - wait, 11</text>
+  <text x="724" y="242" class="lab" text-anchor="end">you</text>
 
-  <rect x="28" y="254" width="360" height="62" rx="9" class="a"/>
-  <text x="44" y="279" class="at">Updated.</text>
-  <text x="44" y="301" class="acc" font-size="13">Corrected time: 10:00 AM -> 11:00 AM</text>
-  <text x="44" y="334" class="lab">nexus · self-correction</text>
+  <rect x="28" y="252" width="372" height="62" rx="8" class="a"/>
+  <text x="44" y="277" class="at">Updated.</text>
+  <text x="44" y="299" class="at" font-family="DejaVu Sans Mono,monospace" font-size="13">Corrected time: 10:00 AM -> 11:00 AM</text>
+  <text x="44" y="332" class="lab">nexus · self-correction</text>
 
-  <!-- turn 3: approval gate -->
-  <rect x="430" y="348" width="302" height="40" rx="9" class="u"/>
-  <text x="450" y="373" class="ut">delete all my reminders</text>
-  <text x="724" y="402" class="lab" text-anchor="end">you</text>
+  <rect x="430" y="346" width="302" height="40" rx="8" class="u"/>
+  <text x="450" y="371" class="ut">delete all my reminders</text>
+  <text x="724" y="400" class="lab" text-anchor="end">you</text>
 
-  <rect x="28" y="412" width="500" height="96" rx="9" class="a"/>
-  <text x="44" y="438" class="at">This will permanently delete 12 reminders.</text>
-  <text x="44" y="460" class="at" font-size="14" fill="#8d99a6">Destructive action - needs your approval.</text>
-  <rect x="44" y="472" width="110" height="28" rx="6" class="btn"/>
-  <text x="99" y="491" class="btnt" text-anchor="middle">Approve</text>
-  <rect x="166" y="472" width="96" height="28" rx="6" class="btn" stroke="#3a4a58"/>
-  <text x="214" y="491" class="btnt" text-anchor="middle" fill="#8d99a6">Cancel</text>
-  <text x="44" y="524" class="lab">nexus · approval gate</text>
+  <rect x="28" y="410" width="500" height="92" rx="8" class="a"/>
+  <text x="44" y="436" class="at">This will permanently delete 12 reminders.</text>
+  <text x="44" y="458" class="at" fill="#6b6b6b" font-size="14">Destructive action - needs your approval.</text>
+  <rect x="44" y="468" width="108" height="26" rx="5" class="btn"/>
+  <text x="98" y="486" class="btnt" text-anchor="middle">Approve</text>
+  <rect x="164" y="468" width="92" height="26" rx="5" class="btn"/>
+  <text x="210" y="486" class="btnt" text-anchor="middle" fill="#6b6b6b">Cancel</text>
+  <text x="44" y="518" class="lab">nexus · approval gate</text>
 </svg>
