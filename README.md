@@ -13,6 +13,10 @@ third-party assistant cloud in the middle.
 > This is a clean, reference extraction: all personal data, credentials, and
 > proprietary business logic have been removed. Bring your own keys and accounts.
 
+![Nexus Core example interaction: a reminder, a self-correction, and the approval gate on a destructive action](docs/assets/interaction.png)
+
+<sub>Illustrative interaction — showing in-message self-correction and the approval gate that holds destructive actions.</sub>
+
 ---
 
 ## What's interesting here
@@ -41,6 +45,8 @@ third-party assistant cloud in the middle.
   secret redaction, and a documented [data map](docs/DATA_MAP.md).
 
 ## Architecture
+
+![Nexus Core architecture: Telegram into the pipeline and tool dispatcher, the brain router selecting Claude/Codex CLI or Ollama, and the MCP servers, services, and user-scoped repositories beneath](docs/assets/architecture.png)
 
 ```
 Telegram ─► pipeline/unified.py ─► auth gate ─► tool_dispatcher ─┐
