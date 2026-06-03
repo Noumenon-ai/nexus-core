@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "nexus-utils": {
+      "command": "python",
+      "args": ["mcp_servers/nexus_utils.py"],
+      "env": {"DATABASE_URL": "sqlite:///./.data/nexus.db", "NEXUS_MCP_DEFAULT_USER_ID": "00000000-0000-0000-0000-000000000001"}
+    },
+    "nexus-reminders-tasks": {
+      "command": "python",
+      "args": ["mcp_servers/nexus_reminders_tasks.py"],
+      "env": {"DATABASE_URL": "sqlite:///./.data/nexus.db", "NEXUS_MCP_DEFAULT_USER_ID": "00000000-0000-0000-0000-000000000001"}
+    },
+    "nexus-knowledge": {
+      "command": "python",
+      "args": ["mcp_servers/nexus_knowledge.py"],
+      "env": {"NEXUS_KNOWLEDGE_DB": "./.data/nexus_knowledge.db"}
+    },
+    "nexus-filesystem": {
+      "command": "python",
+      "args": ["mcp_servers/nexus_filesystem.py"]
+    },
+    "nexus-self": {
+      "command": "python",
+      "args": ["mcp_servers/nexus_self.py"]
+    }
+  }
+}

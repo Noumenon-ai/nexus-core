@@ -1,0 +1,42 @@
+#!/bin/bash
+# Block secrets from being committed (Nexus Core hardening, pillar 3a).
+# Install via: scripts/install-git-hooks.sh
+set -euo pipefail
+
+# 1. Refuse to add files whose path looks like a secret store.
+blocked_paths=$(git diff --cached --name-only --diff-filter=A \
+  | grep -iE '(^|/)(\.env(\.[^.]+)?$|.*_credentials.*|.*_tokens.*|.*_keys.*|ALL_KEYS.*|credentials\.json$|.*\.pem$|.*\.key$|.*\.token$)' \
+  | grep -vE '(\.env\.example$|test|fixture)' || true)
+if [ -n "$blocked_paths" ]; then
+  echo "BLOCKED: refusing to commit files that look like secret stores:"
+  echo "$blocked_paths" | sed 's/^/  - /'
+  echo "Keep secrets in .env / secrets/ (gitignored), not in tracked files."
+  exit 1
+fi
+
+# Files to scan for inline secrets: staged + not under a tests/ or fixtures dir
+# (test suites legitimately contain fake secret-shaped strings for redaction
+# tests). Limit content scans to real source.
+scan_files=$(git diff --cached --name-only --diff-filter=ACM \
+  | grep -vE '(^|/)(tests?|fixtures?)/' \
+  | grep -vE 'credential_scrub' || true)
+[ -z "$scan_files" ] && exit 0
+
+for f in $scan_files; do
+  added=$(git diff --cached -U0 -- "$f" | grep -E '^\+' | grep -vE '^\+\+\+' || true)
+  [ -z "$added" ] && continue
+  # 2. Inline secret assignment (not an env-var read).
+  if printf '%s\n' "$added" \
+    | grep -iE '(api[_-]?key|secret|password|token|private[_-]?key)\s*[:=]\s*["'\''][^"'\'' ]{12,}' \
+    | grep -vqE '(os\.getenv|os\.environ|getenv|environ|example|placeholder|<[^>]+>|\.\.\.|REDACT|xxxx|your[_-])'; then
+    echo "BLOCKED: a hardcoded secret value appears in $f. Use environment variables."
+    exit 1
+  fi
+  # 3. Live-key prefixes.
+  if printf '%s\n' "$added" \
+    | grep -qE '(sk-[A-Za-z0-9]{16,}|sk_live_[A-Za-z0-9]{16,}|xoxb-[A-Za-z0-9-]{16,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{30,})'; then
+    echo "BLOCKED: a live-looking API key/token appears in $f."
+    exit 1
+  fi
+done
+exit 0

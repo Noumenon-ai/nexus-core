@@ -1,0 +1,23 @@
+[Unit]
+Description=Nexus Core Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=/opt/nexus-core
+ExecStart="/opt/nexus-core/.venv/bin/python" main.py
+Restart=always
+RestartSec=5
+# H2-040: KillMode=mixed sends SIGTERM only to the main Python process; any
+# in-flight `claude -p` / `codex exec` children keep running while
+# main.py's post_stop drain (BrainRouter.drain) waits up to 10s for them
+# to finish. Without this, the default KillMode=control-group would
+# SIGTERM the entire cgroup and clip mid-tool-loop subprocesses — the
+# exact failure class diagnosed in H2-039.
+KillMode=mixed
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target

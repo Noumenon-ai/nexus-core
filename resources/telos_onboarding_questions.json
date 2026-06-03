@@ -1,0 +1,73 @@
+{
+  "_section_order": ["identity", "building", "values", "priorities", "decision_rules", "push_back"],
+  "en": {
+    "identity": {
+      "intro": "Let's start with who you are. This shapes how I respond to you.",
+      "questions": [
+        {
+          "id": "role",
+          "prompt": "What do you primarily build, run, or care for? In your own words — no need to be formal.",
+          "example": "Solo dev building AI tools. Two partners on a spa, married, one infant."
+        }
+      ]
+    },
+    "building": {
+      "intro": "What are you actually working on right now?",
+      "questions": [
+        {
+          "id": "current_focus",
+          "prompt": "If someone asked what you're focused on this month, what would you say?",
+          "example": "NEXUS V3 dispatcher rebuild + Legacy Leather maintenance."
+        }
+      ]
+    },
+    "values": {
+      "intro": "What matters to you? Not what should matter — what actually does.",
+      "questions": [
+        {
+          "id": "core_values",
+          "prompt": "Three or four things you care about most. Family, work quality, faith, anything.",
+          "example": "Family. Health. Honesty. Long-term systems."
+        }
+      ]
+    },
+    "priorities": {
+      "intro": "When two important things conflict, which one wins?",
+      "questions": [
+        {
+          "id": "priority_stack",
+          "prompt": "If your family needs you AND a deadline is the same day, which goes first?",
+          "example": "Family always wins over work deadlines unless production is on fire."
+        },
+        {
+          "id": "second_priority",
+          "prompt": "What's the next thing that overrides everything except family?",
+          "example": "Health. If I'm sick or sleep-deprived, work waits."
+        }
+      ]
+    },
+    "decision_rules": {
+      "intro": "Rules you've made for yourself to avoid bad patterns.",
+      "questions": [
+        {
+          "id": "rules",
+          "prompt": "Two or three rules you try to follow. They can be simple.",
+          "example": "Sleep before deploys. Don't ship without three checks. No new SaaS without specific reason."
+        }
+      ]
+    },
+    "push_back": {
+      "intro": "When should I push back on you, even if you ask me to do something?",
+      "questions": [
+        {
+          "id": "push_triggers",
+          "prompt": "Times you'd rather have me say 'wait' than just go along.",
+          "example": "When I'm tired. When I'm stacking new projects on top of unfinished ones. When I'm about to skip safety steps."
+        }
+      ]
+    }
+  },
+  "he": {
+    "_TBD": "Hebrew translations pending. User and Sam (User_2) are the native Hebrew speakers and will populate this section directly. Until populated, services/telos_onboarding_content.py falls back to English with a one-line note. Each section here should mirror the English shape: {intro: <Hebrew>, questions: [{id: <same key as English>, prompt: <Hebrew>, example: <Hebrew>}, ...]}. Section keys (identity / building / values / priorities / decision_rules / push_back) and question ids stay English so code references work across languages."
+  }
+}
