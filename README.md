@@ -82,6 +82,9 @@ git clone https://github.com/Noumenon-ai/nexus-core.git
 cd nexus-core
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+# optional: local Whisper voice transcription (heavy — pulls torch);
+# only needed for VOICE_INPUT_BACKEND=whisper_local
+pip install -r requirements-voice.txt
 
 cp .env.example .env          # fill in TELEGRAM_BOT_TOKEN + ALLOWED_TELEGRAM_IDS
 ./scripts/install-git-hooks.sh # optional: secret-scan + test gates

@@ -1,0 +1,5 @@
+# Optional: local Whisper voice transcription backend.
+# Heavy install (openai-whisper pulls torch, ~900 MB). Only needed when
+# VOICE_INPUT_BACKEND=whisper_local; the groq backend needs no extra packages.
+#   pip install -r requirements-voice.txt
+openai-whisper
