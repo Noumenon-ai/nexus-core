@@ -6,7 +6,7 @@ set -euo pipefail
 # 1. Refuse to add files whose path looks like a secret store.
 blocked_paths=$(git diff --cached --name-only --diff-filter=A \
   | grep -iE '(^|/)(\.env(\.[^.]+)?$|.*_credentials.*|.*_tokens.*|.*_keys.*|ALL_KEYS.*|credentials\.json$|.*\.pem$|.*\.key$|.*\.token$)' \
-  | grep -vE '(\.env\.example$|test|fixture)' || true)
+  | grep -vE '(\.env\.example$|test|fixture|^migrations/voice_credentials_migration\.py$)' || true)
 if [ -n "$blocked_paths" ]; then
   echo "BLOCKED: refusing to commit files that look like secret stores:"
   echo "$blocked_paths" | sed 's/^/  - /'

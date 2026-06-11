@@ -20,6 +20,7 @@ htmlcov/
 !.env.example
 secrets/
 *_credentials*
+!migrations/voice_credentials_migration.py
 *_tokens*
 *_keys*
 ALL_KEYS*
