@@ -46,8 +46,6 @@ codebase. `.gitignore` blocks `.env*`, `secrets/`, `*_credentials*`, `*_tokens*`
   is scoped by `user_id` in every repository.
 - **MCP servers:** scoped via `NEXUS_MCP_DEFAULT_USER_ID` per subprocess;
   ownership is enforced on mutating tools.
-- **Dashboard (if enabled):** loopback-only; refuses a non-loopback bind unless
-  `NEXUS_DASHBOARD_ALLOW_PUBLIC=1`.
 
 ## Notes for operators
 

@@ -39,10 +39,9 @@ third-party assistant cloud in the middle.
   store, filesystem access behind a security boundary, PDF tools, Google
   Calendar / Gmail / Contacts, a browser agent, and a capability-introspection
   server.
-- **Production hardening built in** — user-scoped data access, a dashboard that
-  refuses to bind to a non-loopback interface without explicit opt-in,
-  pre-commit secret scanning + pre-push test hooks, structured logging with
-  secret redaction, and a documented [data map](docs/DATA_MAP.md).
+- **Production hardening built in** — user-scoped data access, pre-commit
+  secret scanning + pre-push test hooks, structured logging with secret
+  redaction, and a documented [data map](docs/DATA_MAP.md).
 
 ## Architecture
 
@@ -105,8 +104,6 @@ for the full annotated list. Nothing is hardcoded; secrets live only in `.env`
 - **Data isolation:** every query on a user-scoped table filters by a
   server-derived `user_id`; cross-user access is rejected.
 - **Approval gate:** destructive tool calls require explicit in-chat approval.
-- **Dashboard:** loopback-only by design; refuses a public bind unless
-  `NEXUS_DASHBOARD_ALLOW_PUBLIC=1` is set.
 - **Secrets:** `.gitignore` blocks every secret shape; a pre-commit hook scans
   staged diffs; logs are redacted.
 - **Data map:** [`docs/DATA_MAP.md`](docs/DATA_MAP.md) lists what is stored, where,

@@ -52,5 +52,6 @@ jobs, audit events, and usage counters. See [DATA_MAP.md](DATA_MAP.md).
 
 ## Observability
 
-Structured logging with a redaction filter (api keys, tokens, bearer headers),
-a `/health` endpoint pattern, and request timing. No PII is logged.
+Structured logging with a redaction filter (api keys, tokens, bearer headers)
+and request timing. No PII is logged. There is no HTTP server in this codebase;
+liveness is checked in-chat via the Telegram `/status` command.
