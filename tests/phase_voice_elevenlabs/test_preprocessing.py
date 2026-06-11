@@ -22,7 +22,7 @@ def test_hebrew_preprocessing_keeps_loanwords_latin():
 
 
 def test_hebrew_preprocessing_strips_geresh():
-    assert preprocess_hebrew('ג׳רוויס אמר "שלום"') == 'ג\'רוויס אמר "שלום"'
+    assert preprocess_hebrew('ג׳ירפה אמרה "שלום"') == 'ג\'ירפה אמרה "שלום"'
 
 
 def test_hebrew_preprocessing_no_niqqud_added():

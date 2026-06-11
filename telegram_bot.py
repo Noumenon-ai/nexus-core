@@ -237,7 +237,7 @@ class TelegramBot:
                 text="That PDF is over 20MB — too large for this handler."))
             return
 
-        uploads_dir = Path("/home/user/nexus_workspace/uploads")
+        uploads_dir = Path.home() / "nexus_workspace" / "uploads"
         uploads_dir.mkdir(parents=True, exist_ok=True)
         target = uploads_dir / f"{uuid.uuid4()}.pdf"
         try:
@@ -308,7 +308,7 @@ class TelegramBot:
             await self._send_output(update.effective_chat.id, PipelineOutput(
                 text="That image is over 10MB — too large for this handler."))
             return
-        uploads_dir = Path("/home/user/nexus_workspace/uploads")
+        uploads_dir = Path.home() / "nexus_workspace" / "uploads"
         uploads_dir.mkdir(parents=True, exist_ok=True)
         target = uploads_dir / f"{uuid.uuid4()}.jpg"
         try:

@@ -189,7 +189,7 @@ async def test_thinking_indicator_posts_then_edits():
     await indicator.start()
     await indicator.finish('here is the real reply')
 
-    assert sent == ['⏳']
+    assert sent == ['...']
     assert edited == [('msg-1', 'here is the real reply')]
 
 
@@ -208,7 +208,7 @@ async def test_thinking_indicator_falls_back_to_send_when_placeholder_lost():
     await indicator.start()
     await indicator.finish('the real reply')
 
-    assert sent == ['⏳', 'the real reply']
+    assert sent == ['...', 'the real reply']
 
 
 @pytest.mark.asyncio
@@ -242,4 +242,4 @@ async def test_thinking_indicator_recovers_when_edit_fails():
     await indicator.start()
     await indicator.finish('the real reply')
     # Recovery: send the final text fresh
-    assert sent == ['⏳', 'the real reply']
+    assert sent == ['...', 'the real reply']

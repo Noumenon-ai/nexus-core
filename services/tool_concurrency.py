@@ -9,7 +9,7 @@ Three independent primitives:
                    for rental_summary (5min), email_unread_count (5min),
                    weather (5min), square_today_sales (2min) and other
                    slow-changing reads.
-  ThinkingIndicator — emit ⏳ immediately on receipt and edit-in-place
+  ThinkingIndicator — emit a '...' placeholder immediately on receipt and edit-in-place
                       when the real reply is ready. Wired by the
                       telegram_bot adapter; this module owns the
                       lifecycle so callers don't have to.
@@ -187,7 +187,7 @@ EditFn = Callable[[Any, str], Awaitable[None]]
 
 @dataclass(slots=True)
 class ThinkingIndicator:
-    """Post ⏳ immediately on receipt; edit to the real reply when ready.
+    """Post a '...' placeholder immediately on receipt; edit to the real reply when ready.
 
     The constructor takes adapter callables so the indicator stays
     decoupled from python-telegram-bot specifics (and the test suite).
@@ -200,7 +200,7 @@ class ThinkingIndicator:
     """
     send: SendFn
     edit: EditFn
-    placeholder: str = '⏳'
+    placeholder: str = '...'
     message_id: Any = field(default=None, init=False)
     _started: bool = field(default=False, init=False)
 
